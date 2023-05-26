@@ -1,62 +1,3 @@
-## Install Python Package
-
-```bash
-pip3 install moteus_gui
-```
-
-## Power Supply
-
-Input range is 10-44V. We are using 24V during the calibration process.
-
-Peak phase current is 100A.
-
-## Calibration
-
-With motor controller powered and CAN connected to USB adapter, run 
-
-```bash
-py -m moteus.moteus_tool --target 1 --calibrate
-```
-
-## Launch GUI
-
-```bash
-py -m moteus_gui.tview --devices=1
-```
-
-## Calibration Procedure
-
-This is a typical calibration log
-
-```bash
-PS D:\OneDrive\School\HybridRobotics\Humanoid-IROS\actuator\Experiment\Moteus-Experiment> py -m moteus.moteus_tool --target 2 --calibrate
-This will move the motor, ensure it can spin freely!
-Starting calibration process
-Testing 1.067V for resistance
-Using 1.067 V for resistance and inductance calibration
-Calculating winding resistance
-0.534V - 2.467A
-0.640V - 2.952A
-0.747V - 3.533A
-0.907V - 4.359A
-1.067V - 4.972A
-Calibrating - 
-Storing encoder config
-Calculating motor inductance
-Calculated inductance: 0.00011903529854725936H
-Calculated kp/ki: 0.07479208388678756/131.0572332975816
-Calculating Kv rating
-Testing 2.288V for Kv
-0.000V - -0.023Hz
-0.572V - 1.778Hz
-1.144V - 3.711Hz
-1.716V - 4.605Hz
-2.288V - 7.455Hz
-v_per_hz (pre-gearbox)=0.3215791691231419
-Saving to persistent storage
-Calibration complete
-REPORT: moteus-cal-ADcAQDdTUA0gMjlC-20230526T030418.129018.log
-------------------------
 {
   "timestamp": "2023-05-26 03:04:18.129018",
   "device_info": {
@@ -137,6 +78,7 @@ REPORT: moteus-cal-ADcAQDdTUA0gMjlC-20230526T030418.129018.log
       1.957505721993239,
       1.7761816481789967
     ]
+  },
   "winding_resistance": 0.2085840650725785,
   "inductance": 0.00011903529854725936,
   "pid_dq_kp": 0.07479208388678756,
@@ -149,4 +91,3 @@ REPORT: moteus-cal-ADcAQDdTUA0gMjlC-20230526T030418.129018.log
   "kv": 93.28962470362046,
   "unwrapped_position_scale": 1.0
 }
-```
